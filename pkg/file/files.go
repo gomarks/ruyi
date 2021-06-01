@@ -36,15 +36,15 @@ func MakeSureFile(f string) error {
 // FileIsOK exists and is a file
 func FileIsOK(f string) error {
 	if f == "" {
-		return fmt.Errorf("IsFileExists file must be not empty")
+		return fmt.Errorf("file path must be not empty")
 	}
 	s, err := os.Stat(f)
 	if err != nil {
-		log.Printf("IsFileExists %s not exists", f)
+		log.Printf("file %s not exists", f)
 		return err
 	}
 	if s.IsDir() {
-		return fmt.Errorf("IsFileExists %s is a directory", f)
+		return fmt.Errorf("%s is a directory", f)
 	}
 	return nil
 }
@@ -52,15 +52,15 @@ func FileIsOK(f string) error {
 // DirIsOK exists and is a folder
 func DirIsOK(d string) error {
 	if d == "" {
-		return fmt.Errorf("DirIsOK dir must be not empty")
+		return fmt.Errorf("dir path must be not empty")
 	}
 	s, err := os.Stat(d)
 	if err != nil {
-		log.Printf("DirIsOK %s not exists", d)
+		log.Printf("dir %s not exists", d)
 		return err
 	}
 	if !s.IsDir() {
-		return fmt.Errorf("DirIsOK %s is not a directory", d)
+		return fmt.Errorf("%s is not a directory", d)
 	}
 	return nil
 }
