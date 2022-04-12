@@ -15,6 +15,6 @@ func TestSumByHmacSHA256(t *testing.T) {
 	others["user"] = "userlabel"
 	others["group"] = "grouplabel"
 	others["expire"] = "360000"
-	sha256, _ := SumByHmacSHA256(appId, deviceId, securityKey, version, filePath, others)
+	sha256, _ := CheckSumByHmacSHA256(appId, deviceId, securityKey, version, filePath, others)
 	log.Info(sha256)
 }
